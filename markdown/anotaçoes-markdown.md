@@ -1,4 +1,6 @@
- * [ ] Criando títulos
+> As anotações foram baseadas nesse curso [aqui](https://www.udemy.com/aprenda-markdown/). do [Roberto Achar](https://twitter.com/RobertoAchar).
+
+* [ ] Criando títulos
 
 Existem seis tamanhos de títulos. Quanto menor na proporção ele for, mais **#** são adicionadas;
 
