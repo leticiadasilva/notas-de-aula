@@ -340,7 +340,7 @@ Nesse exemplo, é criado uma espécie de variável, para qual o link será atrib
 
 - - -
 
-## * [ ] Imagens
+ * [ ] Imagens
 
 É bem parecido com o formato dos links, mas sempre tem um " **!** " antes.
 
@@ -401,7 +401,7 @@ Variáveis: [image-thumbs], com o endereço da imagem, e [image-url], com o ende
         [image-url]: https://pixabay.com/pt/photos/praia-shell-de-mar-shell-f%C3%A9rias-4301479/
 
 - - - 
-## * [ ] Tabelas
+ * [ ] Tabelas
 
 - ### Exemplo 1
 
@@ -457,7 +457,7 @@ Por padrão, o alinhamento das células é a esquerda. Para alinhar uma tabela:
         | Diogo | 15 | Estudante |
 
 - - - 
-## * [ ] Códigos
+ * [ ] Códigos
 
 - ### Exemplo em linha
 
@@ -564,7 +564,7 @@ login (username, password);
 ```
 - - - 
 
-## * [ ] Github
+ * [ ] Github
 
 ### Colocar 'caixinhas' nos ícones de uma lista:
 
