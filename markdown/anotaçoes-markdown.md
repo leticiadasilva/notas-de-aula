@@ -1,4 +1,4 @@
-# * [ ] Criando títulos
+ * [ ] Criando títulos
 
 Existem seis tamanhos de títulos. Quanto menor na proporção ele for, mais **#** são adicionadas;
 
@@ -58,7 +58,7 @@ Título 2
 
 ---
 
-## * [ ] Parágrafos
+ * [ ] Parágrafos
 
 Podem ser quebrados de duas formas:
 
@@ -67,7 +67,7 @@ Podem ser quebrados de duas formas:
 
 ---
 
-## * [ ] Ênfase
+ * [ ] Ênfase
 
 - ### Negrito 1
 
@@ -148,7 +148,7 @@ __*Teste*__
         > **Teste** _Teste_ 
 
 ---
-## *[ ] Linhas horizontais
+ * [ ] Linhas horizontais
 
 - ### Exemplo 1
 
@@ -187,7 +187,7 @@ a única regra é colocar no mínimo três de cada símbolo.
 
         ----------------
 
-## *[ ] Listas Não-Ordenadas 
+ * [ ] Listas Não-Ordenadas 
 
 - ### Exemplo 1
 
@@ -246,7 +246,7 @@ Para deixar os itens espaçados, é só dar **ENTER** entre eles.
 
 - - - 
 
-## * [ ] Listas Ordenadas
+ * [ ] Listas Ordenadas
 
 - ### Exemplo 1
 
@@ -304,7 +304,7 @@ Quer escolher os números da sua lista? Não tem problema! Faça da seguinte for
 
 - - - 
 
-## * [ ] Links
+ * [ ] Links
 
 - ### Exemplo 1
 
