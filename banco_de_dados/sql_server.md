@@ -1,5 +1,8 @@
 # Curso de Introdução ao SQL com Microsoft SQL Server 2017 + T-SQL com SQL Server 2012 Express
 
+> Resumo dos conteúdos vistos do curso de SQL Server da Alura e do livro do autor Rodrigo Ribeiro Gonçalves.
+
+
 ## SQL 
 
 * Linguagem de programação que é utilizada para realizar consultas de banco de dados;  
