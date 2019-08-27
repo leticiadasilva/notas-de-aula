@@ -49,9 +49,30 @@
 
 + Tabela: representação lógica de um dado. Tipo de objeto que serve para alocar dados (campos e seus tipos);
 
+    + Toda tabela, por default, é criada num esquema chamado **_dbo_**. Ela pode ser criada em outro esquema também;
+
 + Chave primária: campo que permite identificar uma tabela com mais de 2 milhões de linhas. Costuma ser do tipo de dado **_int_**;
+    + Quando um campo é chave primária, ele também é índice;
+
++ Índice: estrutura na tabela que facilita a busca;
 
 + Chave estrageira: serve para estabelecer a ligação entre uma tabela e outra (relacionamento);
+
++ Consulta: visualização de uma determinada ou de um conjunto de tabelas.
+
+    + Não é necessário o uso de ponto e vírgula;
+
++ View: estrutura lógica que é uma consulta (também lógica) a outras tabelas físicas;]
+
++ Procedures: processos que acontecem no BD;
+
+    + Exemplo: manipulação de dados, cálculos, funções;
+
+    + É necessário o uso de ponto e vírgula;
+
++ Triggers: comando único ou conjunto de comandos/funções que serão executados quando algo acontece numa tabela. Servem para manipular dados;
+
+    + Precisa ser armazenada em alguma tabela ou view;
 
 + Página de dados: menor alocação de dados (possui o tamanho de 8 kbytes). É exclusiva de um objeto de alocação;
 
@@ -155,6 +176,80 @@ São os tipos de dados que armazenam o tamanho do que foi declarado ou definido 
         Código de caracter de 0 até 255 são representados com 1 byte;
 
         Código de caracter de 256 até 65554 são representados com 2 bytes.
+
+## Comandos
+
++ create database: cria o banco de dados;
+
++ drop database: apaga o banco de dados;
+
+
+        Uso de [] - é utilizada quando um campo/entidade possui caracteres especiais.
+
++ cast: comando utilizado para convereter uma variável **int** em **varchar**.
+
+        Declare
+            @valor int
+        set@valor = 1000
+        print 'valor é' + cast(@valor as varchar)
+
+Esse código também poderia ser escrito usando o comando **convert**, da seguinte forma:
+
+        Declare
+              @valor int
+        set@valor = 1000
+        print 'valor é' + convert(varchar, @valor)
+
+Com o **convert** é necessário informar primeiro o tipo de dado e depois o valor a ser convertido.
+
+A diferença entre os comandos é que o convert permite a existência de um terceiro argumento opcional, muito utilizado na conversão de datas.  
+
++ SP_HELP: Serve para visualizar a estrutura de uma tabela.
+
++ alter table: altera tabelas, seja adicionando ou removendo conteúdos.
+
+        ALTER TABLE Clientes
+        ALTER TABLE column DataNascimento DATETIME not null 
+        
+
+    + Adicionando um campo:
+
+
+            ALTER TABLE Clientes
+            ADD Codigo INT IDENTITY(1,1)
+            Primary key   
+
+            *caso o campo seja chave primária*
+
++ insert: insere novos registros numa tabela.
+
+        INSERT INTO Clientes(
+            Nome,
+            Endereço,
+            Numero,
+            Cidade,
+            Cep
+        )
+        VALUES
+            ('Joana Maria da Silva', 'Rua das Cerejeiras, 133, Laranjais, 12456-890)
+
+(Para inserir múltiplos valores com o comando, é só separar entre "()" as informações de cada nova inserção).
+
++ select: serve para retornar algum campo que você queira visualizar.
+
+            SELECT * FROM Clientes
+
+            
+            (ou)
+
+
+            SELECT 
+                Codigo,
+                Nome,
+                GETDATE() AS [DataAtual]
+
+
+
 
         
 
