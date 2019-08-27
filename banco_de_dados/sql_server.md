@@ -56,7 +56,11 @@
 
 + Índice: estrutura na tabela que facilita a busca;
 
-+ Chave estrageira: serve para estabelecer a ligação entre uma tabela e outra (relacionamento);
++ Chave estrageira: uma coluna é chamada de chave estrangeira quando faz referência à dados de uma coluna que é declarada **chave primária** em outra tabela. Ela pode conter dados nulos, porém todos os seus registros que estão preenchidos devem ter correspondência numa tabela.
+
++ references: recebe como argumento a tabela e o campo em que a receptiva chave primária foi definida. Dessa forma, todos os valores atribuídos aquela coluna devem ter correspondência em outra tabela.
+
+_Sempre que criamos uma chave estrangeira, o SQL Server cria uma constraint para assegurar a integridade daquela chave estrangeira._
 
 + Consulta: visualização de uma determinada ou de um conjunto de tabelas.
 
@@ -94,6 +98,7 @@
 
 + File Group: agrupamento lógico de arquivos de dados para distribuir melhor a alocação de dados entre os discos, agrupar dados de acordo com os contexros ou arquivamentos, e também permitir ao DBA (Administrador do Banco de Dados) uma melhor forma de administração.
 
++ Integridade Referencial: é uma propriedade referente aos valores de uma coluna de uma tabela de banco de dados. Todos os valores dessa coluna tem correspondência em outra coluna de outra tabela. Se essa condição for atendida, há integridade entre as tabelas.
 
 ## Normalização
 
@@ -239,20 +244,234 @@ A diferença entre os comandos é que o convert permite a existência de um terc
 
             SELECT * FROM Clientes
 
-            
             (ou)
-
 
             SELECT 
                 Codigo,
                 Nome,
                 GETDATE() AS [DataAtual]
 
++ where: serve para filtrar registros com base em alguns critérios. Você determina o que vai visualizar, comparando os campos com determinadas condições estabelecidas. Usa os operadores de comparação.
+
+        SELECT
+            Codigo,
+            Nome,
+            Endereco,
+            Telefone, 
+            Email,
+            DataNascimento
+        FROM
+            Clientes
+        WHERE
+            Codigo > 1
 
 
+### Operadores
+
++ and: envolve duas condições, pelo menos, que desejam ser visualizadas.
+
++ or: retorna valores que satisfazem uma ou outra condição.
+
++ between: exiibe uma faixa de comparação (um valor entre **x** ou **y**, por exemplo).
+
++ like: utilizado para buscar por uma determinada string dentro de um campo de caracteres. 
+
+    + registros com o primeiro caractere do campo **nome** igual a "A", por exemplo).
+
++ like com colchetes []: serve para pesquisas mais complexas.  
+
+    + Uma pesquisa pelos nomes Paula ou Paulo, por exemplo, ficaria da seguinte forma:
 
         
+            SELECT * FROM Clientes
+            WHERE LIKE 'Paul[ao]%'
 
-    
++ top: limita a quantidade de registros que serão exibidos no **select**.
+
+        SELECT
+            TOP 2
+            Codigo
+        FROM
+            Clientes
+
++ order by: dispõe os registros numa determinada ordem. Como argumento, espera apenas a indicação das colunas em que se deseja ordenar a seleção desejada. 
+
+    + Por exemplo, para colocar os registros da tabela **Clientes** por ordem alfabética do campo nome:
+
+            SELECT
+                Codigo,
+                Nome,
+                Endereco,
+                Telefone,
+                Email,
+                DataNascimento
+            FROM
+                Clientes
+            ORDER BY
+                Nome
+
++  update: permite atualizar registros em tabelas de um banco de dados.
+
+        UPDATE
+            Clientes
+        SET 
+            Endereco = 'Rua da Saudade', 'Florianópolis', 'SC', Telefone = '48625976'
+        WHERE 
+            Codigo = 1
+
++ isNull: é utilizado para tratar campos com valores nulos.
+
+        ALTER TABLE Clientes
+        ADD Cep VARCHAR(10)
+
+        SELECT 
+            Codigo,
+            Nome,
+            Endereco,
+            Telefone,
+            Email,
+            DataNascimento,
+            ISNULL (Cep, 'Sem Cep') as Cep
+        FROM
+            Clientes
+
++ coalesce: tem o mesmo propósito que a função **ISNULL**, porém a Coalesce faz parte do padrão ANSI, estando presente também em outros bancos de dados, diferente do **ISNULL** que é uma expressão do SQL Server.
+Pode receber mais de dois parâmetros.
+
++ delete: serve para apagar um registro que foi inserido numa tabela.
+
+            DELETE Clientes
+            WHERE Codigo = 5
+
++ truncate table: serve para excluir todos os registros de uma tabela sem nenhuma discriminação.
+
+        TRUNCATE TABLE Clientes
+
+**_ATENÇÃO_**: o comando dá um **reset** na coluna **IDENTITY**, ou seja, a tabela tem todos os seus registros excluídos, e o primeiro registro a ser inserido tem o valor de **IDENTITY** igual a 1.
+
++ tabelas temporárias: são tabelas comuns, mas que existem apenas no escopo da seesão em que foram criadas, ou seja, não estão armazenadas fisicamente no banco de dados de maneira definitiva. Para criar uma, é só adicionar uma **#** antes de escreve o nome da tabela no momento da sua criação.
+
+        CREATE TABLE #Clientes
+
+Há outra forma de criar tabelas temporárias, com o uso de **SELECT** e **INTO**. A técnica cria uma **TABLE** temporária implicitamente já com os dados da tabela pré-existente.
+
+        SELECT *
+        INTO #Clientes
+        FROM Clientes  
+
++ Tabelas temporárias se dividem em dois tipos:
+
+    + Tabelas Locais: são criadas utilizando um **#**;
+
+    + Tabelas Globais: utilizam dois **##** na frente do nome quando estão sendo criadas.
+
+
++ select into: permite a criação de tabelas físicas também. É só remover o **#**.
+
++ campo calculado: colunas virtuais que, por padrão, não estão armazenadas fisicamente no banco de dados. Estão dispostas apenas de maneira lógica. 
+Uma coluna ou campo calculado tem várias aplicações, como listar uma data por extenso ou calcular operações aritméticas entre tabelas.
+
+        ALTER TABLE Vendas
+        ADD TotalVendas AS (Quantidade * ValorVenda)
+
++ joins: clásula da linguagem SQL que permite criar consultas combinando resultados de uma ou duas tabelas por meio de valores comuns entre tabelas. É possível visualizar os conjuntos existentes, intersecções, uniões e diferenças.
+
++ inner join: consulta os registros de duas tabelas e verifica todos os registros de cada uma, selecionando os que têm valores em comum, com base no critério estabelecido no **Join**.
+
+        SELECT
+            Nome, 
+            DataVenda
+        FROM
+            Clientes c
+        INNER JOIN Vendas V ON (C.Codigo = V.Clientes)
+
++ left join: permite obter não apenas os dados relacionados de duas tabelas, mas também os dados não relacionados na tabela à esquerda da clásula **Join**, marcado pelo sinal **=**.
+
+        SELECT
+            Nome,
+            DataVenda
+        FROM
+            Clientes c
+            LEFT JOIN Vendas V ON (C.Codigo = V.Clientes)
+
+* right join: retorna os dados encontrados na tabela à direita do **Join** (=). Caso não existam dados associados entre às tabelas às esquerda e à direita de **Join**, serão retornados valores nulos.
+
+        SELECT
+            Descricao,
+            DataVenda
+        FROM
+            Produtos p
+        LEFT JOIN Vendas V ON (P.Codigo = V.Produto)
+
++ case: avalia uma lista de condições verificadas em um ou mais campos, e retorna apenas um de vários resultados possíveis.
+
+        SELECT
+            CASE
+                WHEN <expressão lógica>
+                    THEN <resultado da expressão 1>
+                WHEN <expressão lógica 2>
+                    THEN <resultado da expressão 2>
+            ELSE
+            <resultado fora das condições listadas>
+            END
+        FROM
+            <tabela>
+
++ group by: permite agrupar registros baseados em um critério estabelecido no argumento da instrução posicionado logo após o comando.
+
+        SELECT
+            Nome,
+            DataVenda
+        FROM
+            Clientes c
+        INNER JOIN Vendas V ON (V.Cliente = C.Codigo)
+        GROUP BY
+            Nome,
+            DataVenda
+
++ funções de agregação: fazem cálculos com um conjunto de valores determinados pela condição estabelecidas em clásulas **GROUP BY**.
+
+    + count: conta os números de registros em uma condição **GROUP BY**.
+
+            SELECT
+                Nome,
+                DataVenda
+                COUNT (*) AS TotalVenda
+            FROM
+                Clientes c
+            INNER JOIN Vendas V ON (V.Cliente = C.Codigo)
+            GROUP BY
+                Nome,
+                DataVenda
+
+    + sum: soma valores numéricos em um cojunto de valores estabelecidos pelo **GROUP BY**.
+
+            SELECT
+                Nome,
+                DataVenda,
+                SUM (ValorVenda AS TotalVenda)
+            FROM
+                Clientes c
+            INNER JOIN Vendas V ON (V.Cliente = C.Codigo)
+            GROUP BY
+                Nome,
+                DataVenda
+
+    + avg: calcula a média de valores em um conjunto estabelecido pelo comando **GROUP BY**.
+
+            SELECT 
+                Descricao,
+                SUM (quantidade * V.ValorVenda) AS TotalVenda,
+                SUM (quantidade * V.ValorVenda),
+                SUM (quantidade * P.ValorVenda) as Desconto - AVG ((quantidade * V.ValorVenda) - (quantidade * P.ValorVenda)) as Desconto
+            FROM
+                Clientes c
+            INNER JOIN Vendas V ON (V.Cliente = C.Codigo)
+            INNER JOIN Produtos P ON (V.Produto = P.Codigo)
+            GROUP BY
+                Descricao
+            
+
+
 
 
