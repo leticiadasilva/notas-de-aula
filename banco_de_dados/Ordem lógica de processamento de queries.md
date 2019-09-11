@@ -19,7 +19,7 @@ Para entendermos melhor, vamos visualizar como a sintaxe do _**SELECT**_ é estr
         ORDER BY
             <lista_ORDER_BY>
 
-### <center>  Tá Lê, mas o que isso tem a ver?
+### <center>  Tá, mas o que isso tem a ver?
 
 Repare na forma como a consulta está estruturada. Ela possui os comandos *Select*, *From*, *Where*, *Group By*, *Having* e *order by*. Acontece que, no SQL, a ordem de leitura desses comandos ocorre de maneira distinta das outras linguagens de programação frequentemente utilizadas. Cada clásula no SQL gera uma saída, podendo ser ela uma tabela virtual, ou um cursor (estrutura que permite o processamento das linhas retornadas por uma consulta **-SELECT-**, através de estruturas complexas de programação, como repetições ou comandos condicionais).
 
