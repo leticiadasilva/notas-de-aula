@@ -19,13 +19,13 @@ Para entendermos melhor, vamos visualizar como a sintaxe do _**SELECT**_ é estr
         ORDER BY
             <lista_ORDER_BY>
 
-### <center>  Tá Lê, mas o que isso tem a ver?
+### Tá Lê, mas o que isso tem a ver?
 
-Repare na forma como a consulta está estruturada. Ela possui os comandos *Select*, *From*, *Where*, *Group By*, *Having* e *order by*. Acontece que, no SQL, a ordem de leitura desses comandos ocorre de maneira distinta das outras linguagens de programação frequentemente utilizadas. Cada clásula no SQL gera uma saída, podendo ser ela uma tabela virtual, ou um cursor (estrutura que permite o processamento das linhas retornadas por uma consulta **-SELECT-**, através de estruturas complexas de programação, como repetições ou comandos condicionais).
+Repare na forma como a consulta está estruturada. Ela possui os comandos *Select*, *From*, *Where*, *Group By*, *Having* e *Order By*. Acontece que, no SQL, a ordem de leitura desses comandos ocorre de maneira distinta das outras linguagens de programação frequentemente utilizadas. Cada clásula no SQL gera uma saída, podendo ser ela uma tabela virtual, ou um cursor (estrutura que permite o processamento das linhas retornadas por uma consulta **-SELECT-**, através de estruturas complexas de programação, como repetições ou comandos condicionais).
 
-### <center>  Okay, mas como isso interfere na minha consulta?
+### Okay, mas como isso interfere na minha consulta?
 
-A ordem de execução dos comandos muda (em relação ao que estamos acostumados). Entender essa prioridade nos ajuda a construir queries mais robustas e aplicáveis ao que desejamos retornar. Isso fica da seguinte forma:
+A ordem de execução dos comandos muda (em relação ao que estamos acostumados). Entender essa prioridade nos ajuda a construir queries mais robustas e aplicáveis ao que desejamos retornar. A ordem seria a seguinte:
 
 * **FROM:** Onde os _**Joins**_ são processados. Aqui é a primeira coisa que será levada em consideração quando uma consulta for executada.  
 Os filtros filtros da clásula _**ON**_ (se houverem) também serão levados em consideração, e isso irá gerar uma tabela virtual;
