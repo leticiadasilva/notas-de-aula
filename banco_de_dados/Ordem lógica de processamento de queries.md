@@ -84,4 +84,4 @@ Os filtros filtros da clásula _**ON**_ (se houverem) também serão levados em 
 
 * **ORDER BY:** Promove a ordenação dos registros para que estes sejam apresentados. Sua saída é um _**cursor**_ que é retornado ao cliente quando a query é executada.
 
->>>>>>> 6830cac6e8865030e2698f047a6feac7768f7021
+
