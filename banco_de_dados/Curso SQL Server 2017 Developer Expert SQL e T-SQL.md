@@ -138,3 +138,96 @@ Sistema gerenciador de banco de dados relacional desenvolvido pela Microsoft (po
 | Master Data Services  | Repositório único de dados |
 | Replicação            | Replicação de dados entre servidores| 
 
+
+## Tipos de dados
+
+O tipo de dado se dá pelo formato em que a informação será armazenada no banco de dados. 
+
+* Cadeias de caracteres:
+
+    + **char(n)**: Sequência de caracteres de tamanho fixo. Máximo 8000 caracteres;
+
+    + **varchar(n)**: Sequência de caracteres de tamanho variável. Máximo 8000 caracteres;
+
+    + **varchar(max)**: Sequência de caracteres de tamanho variável. Máximo 1.073.741.824 caracteres;
+
+    + **text**: Sequência de caracteres de tamanho variável. Máximo 2gb de dados de texto;
+
+* Cadeias de caracteres unicode:
+
+    + **nchar(n)**: Sequência de caracteres de tamanho fixo. Máximo 4000 caracteres;
+
+    + **nvarchar(n)**: Sequência de caracteres de tamanho variável. Máximo 4000 caracteres;
+
+    + **nvarchar(max)**: Sequência de caracteres de tamanho variável. Máximo 536.870.912 caracteres;
+
+    + **ntext()**: Sequência de caracteres de tamanho variável. Máximo de 2gb de dados de texto;
+
+* Cadeias de caracteres binárias:
+    + **binary**: Dados binários de comprimento fixo com um comprimento de n bytes, em que n é um valor de 1 a 8000. O tamanho de armazenamento é em bytes;
+
+    + **image**: Dados binários do comprimento variável de 0 a 2^31-1 (2.147.483.647) bytes;
+
+    + **varbinary**: Dados binários de comprimento vari´vel, n pode ser um valor de 1 a 8000. Max indica que o tamanho de armazenamento máximo é 2^31-1 bytes.
+
+* Data e hora:
+
+* Números exatos:
+* Números aproximados: 
+
+==========================================
+
+## Constraints 
+
+São utilizadas para especificar regras de armazenamentos de dados nas tabelas e garantir integridade.
+
+Tipos:
+
+* **Not null**: garante que uma coluna não receberá valor NULL;
+
+* **Unique**: Garante que os valores em uma coluna sejam diferentes;
+
+* **Primary key**: Chave única, linha exclusiva com, combinação com
+
+* **Foreign key**: Referencia o vlaor de um campo em determinada linha a outra tabela;
+
+* **Default**: Define um valor padrão para uma coluna quando nenhum valor é especificado;
+
+* **Index**: Usado para criar e recuperar dados do banco de dados com melhor performance;
+
+* **Check**: Valida o valor 
+
+
+=========================================
+
+## Definições da linguagem SQL (DML, DDL, DCL, TCL)
+
+* **DML** (Data Manipulation Language): manipulação da linguagem.  
+*Comandos*: 
+
+    + SELECT: recupera dados do banco de dados;
+
+    + INSERT: insere dados em uma tabela;
+    + CREATE: para criar objetos no banco de dados, o próprio banco de dados, tabelas, indexes, views, functions e triggers;
+
+    + UPDATE: atualiza os dados existentes em uma tabela;
+    
+    + DELETE: exclui registros da tabela.
+
+* **DDL** (Data Definition Language): criação dos objetos da linguagem. 
+*Comandos*: 
+
+
+    + ALTER: altera a estrutura da base de dados, o próprio banco de dados, tabelas, indexes, procedures, views, functions e triggers;
+
+    + DROP: apaga objeto do banco de dados,
+
+    + TRUNCATE: remove todos os registros de uma tabela, incluindo todos os espaços alocados para os registros que são removidos.
+
+* **DCL** (Data Control Language): controle de acesso aos objetos.  
+
+*Comandos*: 
+    + GRANT:, REVOKE, GRANY.
+
+* **TCL** (Transaction Control Language): controle de transação da linguagem.  
+*Comandos*: BEGIN TRANSACTION, COMMIT, SAVE, SAVE TRANSACTION, ROLLBACK.
