@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> e9d0abde716245e5c8e725a8c7286d9bc93c1e05
 # Ordem lógica de execução de uma query (Logical Query Processing Phase)
 
 Acostumados frequentemente com linguagens de programação que possuem uma ordem de execução linear, quando nos deparamos com SQL a coisa muda de figura. Aparentemente, a ordem é bem clara quando vemos uma consulta, não? Pois é.  
