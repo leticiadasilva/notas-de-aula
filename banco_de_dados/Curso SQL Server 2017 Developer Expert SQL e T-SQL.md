@@ -175,7 +175,7 @@ O tipo de dado se dá pelo formato em que a informação será armazenada no ban
 * Números exatos:
 * Números aproximados: 
 
-==========================================
+---
 
 ## Constraints 
 
@@ -198,7 +198,7 @@ Tipos:
 * **Check**: Valida o valor 
 
 
-=========================================
+---
 
 ## Definições da linguagem SQL (DML, DDL, DCL, TCL)
 
