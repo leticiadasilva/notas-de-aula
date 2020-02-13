@@ -587,6 +587,15 @@ Colocando **[ ]** com um espaço no meio, ficará assim:
          * [ ] Item 01
          * [ ] Item 02
          * [ ] Item 03
+         
+Caixinhas assinaladas
+- [x] item 01
+- [ ] Item 02
+- [ ] Item 03
+
+        - [x] Write the press release
+        - [ ] Update the website
+        - [ ] Contact the media
 
  --- 
 
