@@ -29,7 +29,8 @@ Repare na forma como a consulta está estruturada. Ela possui os comandos *Selec
 A ordem de execução dos comandos muda (em relação ao que estamos acostumados). Entender essa prioridade nos ajuda a construir queries mais robustas e aplicáveis ao que desejamos retornar. A ordem seria a seguinte:
 
 * **FROM:** Onde os _**Joins**_ são processados. Aqui é a primeira coisa que será levada em consideração quando uma consulta for executada.  
-Os filtros filtros da clásula _**ON**_ (se houverem) também serão levados em consideração, e isso irá gerar uma tabela virtual;
+
+Os filtros da clásula _**ON**_ (se houverem) também serão levados em consideração, e isso irá gerar uma tabela virtual;
 
 * **WHERE:** É o responsável por filtrar e aplicar esses filtros na tabela gerada pelo _**FROM**_. Uma nova tabela virtual é gerada aqui;
 
