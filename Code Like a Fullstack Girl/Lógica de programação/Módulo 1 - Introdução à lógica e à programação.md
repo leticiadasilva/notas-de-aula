@@ -11,7 +11,7 @@
 
 "Habilidade de concentrar nos aspectos essenciais de um contextos qualquer, ignorando características menos importantes ou acidentais."
 
-# Algoritmo e pseudocógigo
+# Algoritmo e pseudocódigo
 
 ## O que é um algoritmo?
 
