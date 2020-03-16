@@ -21,7 +21,7 @@
 
 ## O que é um Fluxograma?
 
-"Ferramenta utilizada para representar graficamente o algooritmo, isto é, a sequência lógica e coerente do fluxo de dados."
+"Ferramenta utilizada para representar graficamente o algoritmo, isto é, a sequência lógica e coerente do fluxo de dados."
 
 "Espécie de diagrama e pode ser entendido como uma representação esquemática de um processo. Podemos entendê-lo, na prática, como a documentação dos passos necessários para a execução de um processo qualquer."
 
