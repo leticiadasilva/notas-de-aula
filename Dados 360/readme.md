@@ -3,8 +3,9 @@
 
 ## Escola de Dados  
 
-> bolsista na Escola de Dados  
+> bolsista na [Escola de Dados](https://escoladedados.org/)  
 
+---
 
 - **Tópicos abordados no curso:**
 
